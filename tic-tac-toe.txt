@@ -46,3 +46,7 @@ function components: don't have own state, eaiser to write
 refactoring Sqaure component to be function component
 
 Add new state varialbe to keep track of terms. Add winner calculation algorithm and set condition to stop overriding non empty squares.
+
+key is a special and reserved property in React (along with ref, a more advanced feature). When an element is created, React extracts the key property and stores the key directly on the returned element. Even though key may look like it belongs in props, key cannot be referenced using this.props.key. React automatically uses key to decide which components to update. A component cannot inquire about its key.
+
+If no key is specificed, React will use the array index as a key by default.
