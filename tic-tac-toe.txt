@@ -1,0 +1,48 @@
+To start a new React App:
+    npx create-react-app app-name 
+note: (can't capitalize letters in app-name)
+
+source codes go into 'src' folder
+
+React class component functions:
+    render() - returns a React element of what will be displayed on the screen
+
+React use JSX syntax which combines js with html
+
+copy and pasted source code, import react, reactdom, and index.css inside index.js and create three template react elements: Square, Boards, Game.
+use "npm start" to start the app
+
+Passing Data Through Props(for Sqaure component):
+    pass through component: 
+        <Component value={val}>
+    access within component: 
+    class Component extend React.Component {
+        {this.props.value}
+    }
+access data of variable with {}
+
+Add function to onClick property of the button tag inside the Squre component.
+
+We can save state inside react components. They can set state by setting "this.state" in their constructors. Remember to pass props to super() (because of inheritance)):
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: null,
+            ...
+        };
+    }
+
+Calling this.setState() tells React to re-render Component. React also updates children components when this is called.
+
+We want to avoid asking children component for their state, but instead store their state at the parent component. If two children need to communicate with each other, you need to declare the sared state in their parent component instead, which can pass its state back down to the children as props
+
+Lift the state from Square components to Board component. We did this by first using an array to store the value of each Square component inside the state of the Board component. We then pass down through props a function from Board into Square, which Square component calls when clicked. When you execute the function inside the child component, it will be executed inside the component that it is stored in. When this function is called it will update the state of the Board component, re-rendering itself and its children.
+
+Remember to implement immutability in your code: making a new copy of some data and reassigning instead of mutating the original data set.
+Benefits include: keep previous data, ability to detect changes which help with re-rendering in React.
+
+function components: don't have own state, eaiser to write
+
+refactoring Sqaure component to be function component
+
+Add new state varialbe to keep track of terms. Add winner calculation algorithm and set condition to stop overriding non empty squares.
